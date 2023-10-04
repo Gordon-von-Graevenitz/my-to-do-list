@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "to-do-list-ac1fd"
+  },
+  "targets": {
+    "to-do-list-ac1fd": {
+      "hosting": {
+        "my-to-do-list": [
+          "to-do-list-ac1fd"
+        ]
+      }
+    }
+  }
+}
