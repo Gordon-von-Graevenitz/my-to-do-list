@@ -11,8 +11,6 @@ export class SharedService {
    getNotes(){
     let notesCollection = collection(this.fs, 'Notes');
     return getDocs(notesCollection);
-    // let querySnapshot = await getDocs(collection(this.fs, 'Notes'))
-    // return querySnapshot.docs.map(doc => doc.data())
   }
   addNote(desc: string){
     let data = {description: desc};

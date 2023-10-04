@@ -9,22 +9,20 @@ import { SharedService } from './shared.service';
 export class AppComponent {
   title = 'my-to-do-list';
 
-  constructor(private service: SharedService){
-
-  }
+  constructor(private service: SharedService){  }
 
   notes:any=[];
 
   refreshNotes(){
-    const res = this.service.getNotes().then((res)=>{
-      this.notes = res.docs.map(doc => doc.data());;
-      
+    this.service.getNotes().then((res)=>{
+      this.notes = res.docs.map(doc => { 
+        return {...doc.data(), id: doc.id};
+      });
     });
   }
   
   ngOnInit(){
     this.refreshNotes();
-    // this.addNotes('testNote');
   }
 
   addNotes(newNotes: string){
