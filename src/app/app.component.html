@@ -1,9 +1,41 @@
-<h2>My To-Do list App</h2>
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My To-Do list App</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
 
+<form class="example-form">
+  <mat-form-field class="example-full-width" floatLabel="always">
+    <mat-label >Add Note Description</mat-label>
+    <input matInput placeholder="Enter Description" #newNote>
+    <button mat-raised-button (click)="addNotes(newNote.value)">Add Note</button>
+  </mat-form-field>
+
+</form>
+
+<!-- <mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let note of notes">
+    <b>* {{ note.description}}</b>
+    <button (click)="deleteNotes(note.id)">Delete Note</button>
+  </mat-list-item>
+</mat-list> -->
+
+<mat-selection-list #noteList>
+  <mat-list-option *ngFor="let note of notes">
+    {{note.description}}
+  </mat-list-option>
+</mat-selection-list>
+<p>
+  Options selected: {{noteList.selectedOptions.selected.length}}
+</p>
+<!-- 
 <input #newNote>
-<button (click)="addNotes(newNote.value)">Add Note</button>
-
-<h3 *ngFor="let note of notes">
-  <b>* {{ note.description}}</b>
-  <button (click)="deleteNotes(note.id)">Delete Note</button>
-</h3>
+<button (click)="addNotes(newNote.value)">Add Note</button> -->

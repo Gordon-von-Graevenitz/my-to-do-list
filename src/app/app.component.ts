@@ -25,8 +25,8 @@ export class AppComponent {
     this.refreshNotes();
   }
 
-  addNotes(newNotes: string){
-    this.service.addNote(newNotes).then((res)=>{
+  async addNotes(newNotes: string){
+    await this.service.addNote(newNotes).then((res)=>{
       console.log(res);
       this.refreshNotes();
     });
